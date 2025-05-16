@@ -7,3 +7,7 @@ export async function createUserService(
 ): Promise<User> {
   return await prisma.user.create({ data });
 }
+
+export async function findUser(prisma: PrismaClient, email: string) {
+  return await prisma.user.findUnique({ where: { email } });
+}
